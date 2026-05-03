@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Radar</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="radar-container" style="display: none;">
+        
+        <div id="drag-overlay">
+            <span>✥ Mover</span>
+            <span style="font-size: 9px; font-weight: 400; margin-top: 4px;">[ESC] para salvar</span>
+        </div>
+
+        <div class="radar-inner">
+            <div class="info-container">
+                <div class="model-name" id="veh-model">AGUARDANDO...</div>
+                
+                <div class="plate-mercosul" id="plate-bg">
+                    <span class="plate-text" id="veh-plate">---</span>
+                </div>
+            </div>
+
+            <div class="stolen-alert" id="stolen-alert" style="display: none;">
+                <span>⚠️ PRODUTO DE ROUBO</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="jquery.js"></script>
+</body>
+</html>
