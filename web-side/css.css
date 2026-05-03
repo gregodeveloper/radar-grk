@@ -1,5 +1,4 @@
 :root {
-    /* Degradê suave e transparente, sem filtro de blur que buga no FiveM */
     --bg-grad: linear-gradient(135deg, rgba(25, 28, 35, 0.85), rgba(12, 14, 18, 0.65));
     --border-color: rgba(255, 255, 255, 0.08);
     --sp-red: #d32f2f;
@@ -14,16 +13,15 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* CONTAINER COMPACTO E MINIMALISTA */
 #radar-container {
     position: absolute;
     left: 50%;
     bottom: 5vh;
     transform: translateX(-50%);
-    width: 170px; /* Bem menor */
+    width: 170px; 
     background: var(--bg-grad);
     border: 1px solid var(--border-color);
-    border-top: 2px solid #546e7a; /* Detalhe superior azul-acinzentado sutil */
+    border-top: 2px solid #546e7a; 
     border-radius: 6px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -68,7 +66,7 @@ body {
     font-size: 0.7rem;
     font-weight: 500;
     text-transform: uppercase;
-    color: #cfd8dc; /* Tom acinzentado bem leve, não agride o olho */
+    color: #cfd8dc; 
     text-align: center;
     max-width: 150px;
     white-space: nowrap;
@@ -77,7 +75,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* PLACA MERCOSUL TAMANHO PROPORCIONAL */
 .plate-mercosul {
     background-image: url('https://r2.fivemanage.com/m8xDmfxMY5L43JRXiJ7MA/plate02.png');
     background-size: 100% 100%;
@@ -100,7 +97,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* ALERTA DE ROUBO SUTIL (Sem piscar) */
+
 .stolen-alert {
     background: linear-gradient(90deg, rgba(211, 47, 47, 0.4), rgba(211, 47, 47, 0.05));
     border-left: 3px solid var(--sp-red);
@@ -113,7 +110,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* MUDANÇA DE TEMA AO DETECTAR ROUBO */
+
 #radar-container.is-stolen {
     border-color: rgba(211, 47, 47, 0.4);
     border-top: 2px solid var(--sp-red);

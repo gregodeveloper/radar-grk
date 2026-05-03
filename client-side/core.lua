@@ -12,7 +12,7 @@ local policeFreeze = false
 local isDragging = false
 
 -----------------------------------------------------------------------------------------------------------------------------------------
--- THREAD RADAR (APENAS DIANTEIRO)
+-- THREAD RADAR 
 -----------------------------------------------------------------------------------------------------------------------------------------
 CreateThread(function()
 	while true do
@@ -25,7 +25,6 @@ CreateThread(function()
 			local Vehicle = GetVehiclePedIsUsing(Ped)
 			local Dimension = GetOffsetFromEntityInWorldCoords(Vehicle, 0.0, 1.0, 1.0)
 			
-            -- Raio de captura frontal
 			local VehicleFront = GetOffsetFromEntityInWorldCoords(Vehicle, 0.0, 105.0, 0.0)
 			local VehicleFrontShape = StartShapeTestCapsule(Dimension, VehicleFront, 3.0, 10, Vehicle, 7)
 			local _, _, _, _, Front = GetShapeTestResult(VehicleFrontShape)
@@ -33,8 +32,7 @@ CreateThread(function()
 			if IsEntityAVehicle(Front) then
 				local Model = vRP.VehicleModel(Front)
 				local PlateText = GetVehicleNumberPlateText(Front)
-				
-				-- Consulta direta ao GlobalState do Gov.xp para verificar queixa de roubo
+
 				local CleanPlate = string.gsub(PlateText, "%s+", "")
 				local isStolen = false
 				if GlobalState.StolenPlates and GlobalState.StolenPlates[CleanPlate] then
@@ -48,7 +46,6 @@ CreateThread(function()
                     stolen = isStolen 
                 })
             else
-                -- Limpa o radar se não houver carro na frente
                 SendNUIMessage({ radar = "clear" })
 			end
 		end
@@ -85,7 +82,6 @@ RegisterCommand("toggleFreeze", function()
 	end
 end)
 
--- Sistema de Mover o Radar (Drag)
 RegisterCommand("radar", function()
     local Ped = PlayerPedId()
     if IsPedInAnyPoliceVehicle(Ped) and CheckPolice() and policeRadar then
